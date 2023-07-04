@@ -1,5 +1,7 @@
 package lee.moonhyuk.blogsearch.ranking.event;
 
+import lee.moonhyuk.blogsearch.ranking.hit.HitAspect;
+import lee.moonhyuk.blogsearch.ranking.hit.HitService;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
 import org.aspectj.lang.JoinPoint;
 import org.junit.jupiter.api.Test;

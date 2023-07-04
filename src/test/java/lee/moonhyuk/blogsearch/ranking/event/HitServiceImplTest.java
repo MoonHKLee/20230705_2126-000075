@@ -1,8 +1,10 @@
 package lee.moonhyuk.blogsearch.ranking.event;
 
-import lee.moonhyuk.blogsearch.ranking.Keyword;
-import lee.moonhyuk.blogsearch.ranking.KeywordRepository;
-import lee.moonhyuk.blogsearch.ranking.TopRank;
+import lee.moonhyuk.blogsearch.ranking.domain.Keyword;
+import lee.moonhyuk.blogsearch.ranking.domain.KeywordRepository;
+import lee.moonhyuk.blogsearch.ranking.domain.TopRank;
+import lee.moonhyuk.blogsearch.ranking.hit.HitService;
+import lee.moonhyuk.blogsearch.ranking.hit.HitServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

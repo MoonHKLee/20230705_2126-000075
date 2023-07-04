@@ -1,6 +1,6 @@
 package lee.moonhyuk.blogsearch.search.service;
 
-import lee.moonhyuk.blogsearch.ranking.event.Hit;
+import lee.moonhyuk.blogsearch.ranking.hit.Hit;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchResponse;
 import lee.moonhyuk.blogsearch.search.dto.naver.NaverBlogSearchResponse;

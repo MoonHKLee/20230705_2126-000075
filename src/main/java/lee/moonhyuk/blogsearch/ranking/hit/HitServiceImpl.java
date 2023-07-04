@@ -1,8 +1,8 @@
-package lee.moonhyuk.blogsearch.ranking.event;
+package lee.moonhyuk.blogsearch.ranking.hit;
 
-import lee.moonhyuk.blogsearch.ranking.Keyword;
-import lee.moonhyuk.blogsearch.ranking.KeywordRepository;
-import lee.moonhyuk.blogsearch.ranking.TopRank;
+import lee.moonhyuk.blogsearch.ranking.domain.Keyword;
+import lee.moonhyuk.blogsearch.ranking.domain.KeywordRepository;
+import lee.moonhyuk.blogsearch.ranking.domain.TopRank;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

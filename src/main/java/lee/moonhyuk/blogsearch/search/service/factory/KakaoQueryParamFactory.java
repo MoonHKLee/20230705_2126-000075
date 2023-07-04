@@ -1,7 +1,9 @@
 package lee.moonhyuk.blogsearch.search.service.factory;
 
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
+import org.springframework.stereotype.Component;
 
+@Component
 public class KakaoQueryParamFactory implements ApiQueryParamFactory{
 
     private static final String KAKAO_API_URL = "https://dapi.kakao.com/v2/search/blog";

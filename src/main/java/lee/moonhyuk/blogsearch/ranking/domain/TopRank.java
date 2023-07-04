@@ -1,4 +1,4 @@
-package lee.moonhyuk.blogsearch.ranking;
+package lee.moonhyuk.blogsearch.ranking.domain;
 
 import org.springframework.stereotype.Component;
 

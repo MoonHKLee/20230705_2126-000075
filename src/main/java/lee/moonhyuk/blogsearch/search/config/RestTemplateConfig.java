@@ -1,4 +1,4 @@
-package lee.moonhyuk.blogsearch.config;
+package lee.moonhyuk.blogsearch.search.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;

@@ -1,5 +1,6 @@
 package lee.moonhyuk.blogsearch.ranking;
 
+import lee.moonhyuk.blogsearch.ranking.domain.TopRank;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

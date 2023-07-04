@@ -1,6 +1,6 @@
 package lee.moonhyuk.blogsearch.ui;
 
-import lee.moonhyuk.blogsearch.ranking.TopRank;
+import lee.moonhyuk.blogsearch.ranking.domain.TopRank;
 import lee.moonhyuk.blogsearch.ranking.dto.RankingResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package lee.moonhyuk.blogsearch.ranking.event;
+package lee.moonhyuk.blogsearch.ranking.hit;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

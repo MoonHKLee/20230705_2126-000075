@@ -1,4 +1,4 @@
-package lee.moonhyuk.blogsearch.ranking.event;
+package lee.moonhyuk.blogsearch.ranking.hit;
 
 public interface HitService {
     void hit(String keyword);

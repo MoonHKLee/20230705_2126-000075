@@ -1,4 +1,4 @@
-package lee.moonhyuk.blogsearch.ranking.event;
+package lee.moonhyuk.blogsearch.ranking.hit;
 
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class HitAspect {
     private final HitService hitService;
 
-    @AfterReturning(pointcut = "@annotation(lee.moonhyuk.blogsearch.ranking.event.Hit)")
+    @AfterReturning(pointcut = "@annotation(lee.moonhyuk.blogsearch.ranking.hit.Hit)")
     public void afterReturningAdvice(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
         BlogSearchRequest request = (BlogSearchRequest) args[0];

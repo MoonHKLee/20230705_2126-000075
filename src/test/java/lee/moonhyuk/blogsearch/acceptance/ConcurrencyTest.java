@@ -1,8 +1,8 @@
 package lee.moonhyuk.blogsearch.acceptance;
 
-import lee.moonhyuk.blogsearch.ranking.Keyword;
-import lee.moonhyuk.blogsearch.ranking.KeywordRepository;
-import lee.moonhyuk.blogsearch.ranking.event.HitService;
+import lee.moonhyuk.blogsearch.ranking.domain.Keyword;
+import lee.moonhyuk.blogsearch.ranking.domain.KeywordRepository;
+import lee.moonhyuk.blogsearch.ranking.hit.HitService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
