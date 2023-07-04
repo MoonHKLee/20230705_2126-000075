@@ -19,7 +19,7 @@ public class RestTemplateConfig {
     @Autowired
     public void customizeRestTemplate(RestTemplateBuilder restTemplateBuilder) {
         restTemplateBuilder
-                .setConnectTimeout(Duration.ofSeconds(30)) // 연결 타임아웃 설정
-                .setReadTimeout(Duration.ofSeconds(30)); // 읽기 타임아웃 설정
+                .setConnectTimeout(Duration.ofSeconds(5))
+                .setReadTimeout(Duration.ofSeconds(5));
     }
 }
