@@ -5,6 +5,7 @@ import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchResponse;
 import lee.moonhyuk.blogsearch.search.dto.naver.NaverBlogSearchResponse;
 import lee.moonhyuk.blogsearch.search.service.factory.ApiQueryParamFactory;
+import lee.moonhyuk.blogsearch.util.ThreadLocalContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
@@ -30,6 +31,7 @@ public class NaverBlogSearchService implements BlogSearchService{
     @Override
     @Hit
     public BlogSearchResponse search(BlogSearchRequest request) {
+        ThreadLocalContext.threadLocal.set(request.getQuery());
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-Naver-Client-Id", naverClientId);
         headers.add("X-Naver-Client-Secret", naverClientSecret);

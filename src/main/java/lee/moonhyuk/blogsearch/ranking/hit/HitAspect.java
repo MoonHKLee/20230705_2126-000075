@@ -1,6 +1,6 @@
 package lee.moonhyuk.blogsearch.ranking.hit;
 
-import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
+import lee.moonhyuk.blogsearch.util.ThreadLocalContext;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -15,8 +15,7 @@ public class HitAspect {
 
     @AfterReturning(pointcut = "@annotation(lee.moonhyuk.blogsearch.ranking.hit.Hit)")
     public void afterReturningAdvice(JoinPoint joinPoint) {
-        Object[] args = joinPoint.getArgs();
-        BlogSearchRequest request = (BlogSearchRequest) args[0];
-        hitService.hit(request.getQuery());
+        hitService.hit(ThreadLocalContext.threadLocal.get());
+        ThreadLocalContext.threadLocal.remove();
     }
 }

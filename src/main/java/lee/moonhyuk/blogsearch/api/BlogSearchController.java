@@ -1,4 +1,4 @@
-package lee.moonhyuk.blogsearch.ui;
+package lee.moonhyuk.blogsearch.api;
 
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchResponse;

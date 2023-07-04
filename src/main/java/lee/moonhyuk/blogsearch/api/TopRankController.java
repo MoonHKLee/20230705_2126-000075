@@ -1,4 +1,4 @@
-package lee.moonhyuk.blogsearch.ui;
+package lee.moonhyuk.blogsearch.api;
 
 import lee.moonhyuk.blogsearch.ranking.domain.TopRank;
 import lee.moonhyuk.blogsearch.ranking.dto.RankingResponse;
