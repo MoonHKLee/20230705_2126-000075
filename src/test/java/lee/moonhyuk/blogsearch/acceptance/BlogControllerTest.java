@@ -3,6 +3,7 @@ package lee.moonhyuk.blogsearch.acceptance;
 import lee.moonhyuk.blogsearch.search.dto.Sort;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -10,6 +11,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 class BlogControllerTest extends ControllerTest {
+
+    @ParameterizedTest
+    @NullAndEmptySource
+    void 블로그_검색_기본_빈값_검사(String keyword) throws Exception {
+        블로그_검색(keyword)
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message").value("query should not be blank"))
+                .andDo(print());
+    }
     @Test
     void 블로그_검색_기본() throws Exception {
         블로그_검색("hello")

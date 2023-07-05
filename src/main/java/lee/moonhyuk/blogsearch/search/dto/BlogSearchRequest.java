@@ -30,7 +30,7 @@ public class BlogSearchRequest {
 
     public BlogSearchRequest(String query, String sort, Integer page, Integer size) {
         if (query==null) {
-            throw new IllegalArgumentException("query should not be null");
+            throw new IllegalArgumentException("query should not be blank");
         }
         query = query.trim();
         if (!StringUtils.hasText(query)) {

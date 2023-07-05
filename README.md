@@ -116,7 +116,7 @@ blogsearch
 
 # 3.빌드 결과물
 - [[깃허브 다운로드]](https://github.com/MoonHKLee/20230705_2126-000075/blob/master/lib/blog-search-0.0.1-SNAPSHOT.jar)
-- [[구글드라이브 다운로드]](https://drive.google.com/file/d/1snTVwP26JZyBE1YGW5xxp5_mezNLI8YL/view?usp=sharing)
+- [[구글드라이브 다운로드]](https://drive.google.com/file/d/18xnyYS2H6FIq-u6pUJg5Jdj9twYOkFoB/view?usp=sharing)
 ```shell
 $ java -jar blog-search-0.0.1-SNAPSHOT.jar
 ```
