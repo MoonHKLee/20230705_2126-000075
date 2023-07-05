@@ -1,6 +1,5 @@
 package lee.moonhyuk.blogsearch.search.service.factory;
 
-import lee.moonhyuk.blogsearch.search.config.KakaoProperties;
 import lee.moonhyuk.blogsearch.search.config.NaverProperties;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
 import org.junit.jupiter.api.Test;
