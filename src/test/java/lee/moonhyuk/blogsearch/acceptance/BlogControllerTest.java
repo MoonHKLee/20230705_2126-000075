@@ -14,6 +14,13 @@ class BlogControllerTest extends ControllerTest {
     void 블로그_검색_기본() throws Exception {
         블로그_검색("hello")
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.size").value(10))
+                .andExpect(jsonPath("$.page").value(1))
+                .andExpect(jsonPath("$.blogs").isArray())
+                .andExpect(jsonPath("$.blogs[*].title").exists())
+                .andExpect(jsonPath("$.blogs[*].contents").exists())
+                .andExpect(jsonPath("$.blogs[*].url").exists())
+                .andExpect(jsonPath("$.blogs[*].blogName").exists())
                 .andDo(print());
     }
 
@@ -21,6 +28,13 @@ class BlogControllerTest extends ControllerTest {
     void 블로그_검색_페이지() throws Exception {
         블로그_검색("hello", 2, 10, Sort.ACCURACY)
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.size").value(10))
+                .andExpect(jsonPath("$.page").value(2))
+                .andExpect(jsonPath("$.blogs").isArray())
+                .andExpect(jsonPath("$.blogs[*].title").exists())
+                .andExpect(jsonPath("$.blogs[*].contents").exists())
+                .andExpect(jsonPath("$.blogs[*].url").exists())
+                .andExpect(jsonPath("$.blogs[*].blogName").exists())
                 .andDo(print());
     }
 
@@ -29,6 +43,12 @@ class BlogControllerTest extends ControllerTest {
         블로그_검색("hello", 1, 5, Sort.ACCURACY)
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.size").value(5))
+                .andExpect(jsonPath("$.page").value(1))
+                .andExpect(jsonPath("$.blogs").isArray())
+                .andExpect(jsonPath("$.blogs[*].title").exists())
+                .andExpect(jsonPath("$.blogs[*].contents").exists())
+                .andExpect(jsonPath("$.blogs[*].url").exists())
+                .andExpect(jsonPath("$.blogs[*].blogName").exists())
                 .andDo(print());
     }
 
@@ -36,6 +56,13 @@ class BlogControllerTest extends ControllerTest {
     void 블로그_검색_최신순() throws Exception {
         블로그_검색("hello", 1, 10, Sort.RECENCY)
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.size").value(10))
+                .andExpect(jsonPath("$.page").value(1))
+                .andExpect(jsonPath("$.blogs").isArray())
+                .andExpect(jsonPath("$.blogs[*].title").exists())
+                .andExpect(jsonPath("$.blogs[*].contents").exists())
+                .andExpect(jsonPath("$.blogs[*].url").exists())
+                .andExpect(jsonPath("$.blogs[*].blogName").exists())
                 .andDo(print());
     }
 
