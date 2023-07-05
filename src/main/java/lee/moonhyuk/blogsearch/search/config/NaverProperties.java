@@ -3,16 +3,11 @@ package lee.moonhyuk.blogsearch.search.config;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.util.StringUtils;
 
 @Getter
 @Setter
 @ConfigurationProperties(prefix = "naver")
 public class NaverProperties {
-
-    private static final String NAVER_API_URL = "https://openapi.naver.com/v1/search/blog";
-    private static final String NAVER_CLIENT_ID = "NCM2Bm8v9TmmIWYotQgN";
-    private static final String NAVER_CLIENT_SECRET = "2ExI8_rYEE";
 
     private API api;
     private Client client;
@@ -22,10 +17,10 @@ public class NaverProperties {
 
     public NaverProperties(String url, String clientId, String clientSecret) {
         this.api = new API();
-        api.setUrl(!StringUtils.hasText(url) ? NAVER_API_URL : url);
+        api.setUrl(url);
         this.client = new Client();
-        client.setId(!StringUtils.hasText(clientId) ? NAVER_CLIENT_ID : clientId);
-        client.setSecret(!StringUtils.hasText(clientSecret) ? NAVER_CLIENT_SECRET : clientSecret);
+        client.setId(clientId);
+        client.setSecret(clientSecret);
     }
 
     @Getter

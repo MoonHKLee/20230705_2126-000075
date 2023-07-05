@@ -12,10 +12,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-@Service
 @RequiredArgsConstructor
 @Order(2)
 public class NaverBlogSearchService implements BlogSearchService{
