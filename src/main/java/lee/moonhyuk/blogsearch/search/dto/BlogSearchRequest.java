@@ -29,6 +29,9 @@ public class BlogSearchRequest {
     private Integer size;
 
     public BlogSearchRequest(String query, String sort, Integer page, Integer size) {
+        if (query==null) {
+            throw new IllegalArgumentException("query should not be null");
+        }
         query = query.trim();
         if (!StringUtils.hasText(query)) {
             throw new IllegalArgumentException("query should not be blank");
