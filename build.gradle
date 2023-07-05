@@ -22,12 +22,21 @@ repositories {
 }
 
 dependencies {
+    // API 진입시점에 입력값 검증을 위한 의존성
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // 데이터베이스 저장을 위한 의존성
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
+
+    // 외부로 노출할 REST API를 위한 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // 중복 코드를 없애고 간결한 코드를 작성하기 위한 의존성
+    compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    //테스트 관련 의존성
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.assertj:assertj-core:3.24.2'
 }
