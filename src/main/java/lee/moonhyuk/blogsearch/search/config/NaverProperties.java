@@ -3,15 +3,25 @@ package lee.moonhyuk.blogsearch.search.config;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
-@Component
 @Getter
 @Setter
 @ConfigurationProperties(prefix = "naver")
 public class NaverProperties {
+
     private API api;
     private Client client;
+
+    public NaverProperties() {
+    }
+
+    public NaverProperties(String url, String clientId, String clientSecret) {
+        this.api = new API();
+        api.setUrl(url);
+        this.client = new Client();
+        client.setId(clientId);
+        client.setSecret(clientSecret);
+    }
     @Getter
     @Setter
     public static class API {
