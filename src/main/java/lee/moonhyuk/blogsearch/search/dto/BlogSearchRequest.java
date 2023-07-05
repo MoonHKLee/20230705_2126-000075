@@ -1,6 +1,8 @@
 package lee.moonhyuk.blogsearch.search.dto;
 
+import lee.moonhyuk.blogsearch.util.validation.AllowedStrings;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.util.StringUtils;
 
 import javax.validation.constraints.Max;
@@ -13,7 +15,10 @@ public class BlogSearchRequest {
     @NotBlank(message = "query should not be blank")
     private String query;
 
-    private final String sort;
+    @AllowedStrings(value = {"accuracy", "recency", "sim", "date"},
+            message = "sort should be one of accuracy, recency, sim, date")
+    @Setter
+    private String sort;
 
     @Min(value = 1, message = "page should be more than 0, less than 51")
     @Max(value = 50, message = "page should be more than 0, less than 51")

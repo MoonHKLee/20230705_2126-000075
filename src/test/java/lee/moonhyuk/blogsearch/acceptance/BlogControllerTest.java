@@ -25,6 +25,14 @@ class BlogControllerTest extends ControllerTest {
     }
 
     @Test
+    void 블로그_검색_정렬_이상한_값() throws Exception {
+        블로그_검색("hello", 2, 10, "asdf")
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message").value("sort should be one of accuracy, recency, sim, date"))
+                .andDo(print());
+    }
+
+    @Test
     void 블로그_검색_페이지() throws Exception {
         블로그_검색("hello", 2, 10, Sort.ACCURACY)
                 .andExpect(status().isOk())

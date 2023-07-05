@@ -30,6 +30,16 @@ public class ControllerTest {
                 .contentType(MediaType.APPLICATION_JSON));
     }
 
+    protected ResultActions 블로그_검색(String query, int page, int size, String sort) throws Exception {
+        return mockMvc.perform(get("/blogs")
+                .param("query", query)
+                .param("page", String.valueOf(page))
+                .param("size", String.valueOf(size))
+                .param("sort", sort)
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON));
+    }
+
     protected ResultActions 블로그_검색(String query) throws Exception {
         return mockMvc.perform(get("/blogs")
                 .param("query", query)
