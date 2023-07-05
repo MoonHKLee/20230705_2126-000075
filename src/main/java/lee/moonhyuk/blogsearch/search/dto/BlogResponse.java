@@ -18,7 +18,7 @@ public class BlogResponse {
         response.setTitle(document.getTitle());
         response.setContents(document.getContents());
         response.setUrl(document.getUrl());
-        response.setBlogName(document.getBlogName());
+        response.setBlogName(document.getBlogname());
         return response;
     }
 

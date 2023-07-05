@@ -15,7 +15,7 @@ public class BlogResponseTest {
         document.setTitle("Title");
         document.setContents("Contents");
         document.setUrl("https://example.com/blog");
-        document.setBlogName("Blog Name");
+        document.setBlogname("Blog Name");
 
         // when
         BlogResponse result = BlogResponse.of(document);
