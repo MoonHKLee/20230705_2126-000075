@@ -7,8 +7,6 @@ import lombok.Setter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Getter
-@Setter
 public class KakaoBlogSearchResponse {
     private Meta meta;
     private List<Document> documents;
@@ -17,5 +15,17 @@ public class KakaoBlogSearchResponse {
         return documents.stream()
                 .map(BlogResponse::of)
                 .collect(Collectors.toList());
+    }
+
+    public Meta getMeta() {
+        return meta;
+    }
+
+    public void setMeta(Meta meta) {
+        this.meta = meta;
+    }
+
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
     }
 }

@@ -5,11 +5,19 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Meta {
     private int totalCount;
+
     private int pageableCount;
+
     private boolean isEnd;
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
 }

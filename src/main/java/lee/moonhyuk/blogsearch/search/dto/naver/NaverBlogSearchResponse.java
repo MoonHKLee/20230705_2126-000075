@@ -7,8 +7,6 @@ import lombok.Setter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Getter
-@Setter
 public class NaverBlogSearchResponse {
     private String title;
     private String link;
@@ -23,5 +21,21 @@ public class NaverBlogSearchResponse {
         return items.stream()
                 .map(BlogResponse::of)
                 .collect(Collectors.toList());
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public void setItems(List<NaverBlogSearchItem> items) {
+        this.items = items;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public List<NaverBlogSearchItem> getItems() {
+        return items;
     }
 }

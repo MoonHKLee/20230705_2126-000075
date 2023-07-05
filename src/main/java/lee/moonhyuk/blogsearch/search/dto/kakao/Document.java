@@ -1,5 +1,6 @@
 package lee.moonhyuk.blogsearch.search.dto.kakao;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,10 @@ public class Document {
     private String contents;
     private String url;
     private String blogname;
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     private String thumbnail;
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     private String datetime;
 }
