@@ -1,25 +1,33 @@
 package lee.moonhyuk.blogsearch.search.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class PropertiesConfiguration {
-    private static final String KAKAO_API_URL = "https://dapi.kakao.com/v2/search/blog";
-    private static final String KAKAO_API_KEY = "76a527d0e4ebf76d3bc6c9a87887f75a";
-    private static final String NAVER_API_URL = "https://openapi.naver.com/v1/search/blog.json";
-    private static final String NAVER_CLIENT_ID = "NCM2Bm8v9TmmIWYotQgN";
-    private static final String NAVER_CLIENT_SECRET = "2ExI8_rYEE";
-    @ConditionalOnProperty(name = "kakao.api.url", matchIfMissing = true)
+
+    @Value("${kakao.api.url}")
+    private String kakaoApiUrl;
+    @Value("${kakao.api.key}")
+    private String kakaoApiKey;
+    @Value("${naver.api.url}")
+    private String naverApiUrl;
+    @Value("${naver.client.id}")
+    private String naverClientId;
+    @Value("${naver.client.secret}")
+    private String naverClientSecret;
+
+    @ConditionalOnProperty(name = {"kakao.api.key","kakao.api.url"}, matchIfMissing = true)
     @Bean
     public KakaoProperties kakaoProperties() {
-        return new KakaoProperties(KAKAO_API_KEY, KAKAO_API_URL);
+        return new KakaoProperties(kakaoApiKey, kakaoApiUrl);
     }
 
-    @ConditionalOnProperty(name = "naver.api.url", matchIfMissing = true)
+    @ConditionalOnProperty(name = {"naver.api.url","naver.client.id","naver.client.secret"}, matchIfMissing = true)
     @Bean
     public NaverProperties naverProperties() {
-        return new NaverProperties(NAVER_API_URL, NAVER_CLIENT_ID, NAVER_CLIENT_SECRET);
+        return new NaverProperties(naverApiUrl, naverClientId, naverClientSecret);
     }
 }

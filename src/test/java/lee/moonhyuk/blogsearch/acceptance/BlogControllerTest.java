@@ -4,6 +4,7 @@ import lee.moonhyuk.blogsearch.search.dto.Sort;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -12,6 +13,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class BlogControllerTest extends ControllerTest {
     @Test
     void 블로그_검색_기본() throws Exception {
+        블로그_검색("hello")
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andReturn();
+    }
+
+    @Test
+    void 블로그_검색_카카오_실패시_네이버() throws Exception {
         블로그_검색("hello")
                 .andExpect(status().isOk())
                 .andDo(print())

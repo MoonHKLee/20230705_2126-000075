@@ -15,6 +15,9 @@ public class NaverQueryParamFactory implements ApiQueryParamFactory{
                 + "?query=" + request.getQuery()
                 + "&display=" + request.getSize()
                 + "&start=" + request.getPage()
-                + "&sort=" + request.getSort();
+                + "&sort=" + getSort(request);
+    }
+    private String getSort(BlogSearchRequest request) {
+        return request.getSort().equals("accuracy") ? "sim" : request.getSort();
     }
 }
