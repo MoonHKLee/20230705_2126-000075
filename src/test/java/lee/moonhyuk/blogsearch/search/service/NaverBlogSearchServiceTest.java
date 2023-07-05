@@ -1,5 +1,6 @@
 package lee.moonhyuk.blogsearch.search.service;
 
+import lee.moonhyuk.blogsearch.search.config.NaverProperties;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchResponse;
 import lee.moonhyuk.blogsearch.search.dto.naver.NaverBlogSearchItem;
@@ -31,11 +32,14 @@ public class NaverBlogSearchServiceTest {
     @Mock
     private ApiQueryParamFactory naverQueryParamFactory;
 
+    @Mock
+    private NaverProperties naverProperties;
+
     private NaverBlogSearchService naverBlogSearchService;
 
     @BeforeEach
     void setUp() {
-        naverBlogSearchService = new NaverBlogSearchService(restTemplate, naverQueryParamFactory);
+        naverBlogSearchService = new NaverBlogSearchService(restTemplate, naverQueryParamFactory, naverProperties);
     }
 
     @Test

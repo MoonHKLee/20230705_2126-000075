@@ -1,16 +1,18 @@
 package lee.moonhyuk.blogsearch.search.service.factory;
 
+import lee.moonhyuk.blogsearch.search.config.KakaoProperties;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class KakaoQueryParamFactory implements ApiQueryParamFactory{
-
-    private static final String KAKAO_API_URL = "https://dapi.kakao.com/v2/search/blog";
+    private final KakaoProperties kakaoProperties;
 
     @Override
     public String getApiUrlWithQueryParam(BlogSearchRequest request) {
-        return KAKAO_API_URL
+        return kakaoProperties.getApiUrl()
                 + "?query=" + request.getQuery()
                 + "&sort=" + request.getSort()
                 + "&page=" + request.getPage()

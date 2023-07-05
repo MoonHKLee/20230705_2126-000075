@@ -1,5 +1,6 @@
 package lee.moonhyuk.blogsearch.search.service;
 
+import lee.moonhyuk.blogsearch.search.config.KakaoProperties;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchResponse;
 import lee.moonhyuk.blogsearch.search.dto.kakao.Document;
@@ -32,11 +33,14 @@ public class KakaoBlogSearchServiceTest {
     @Mock
     private ApiQueryParamFactory kakaoQueryParamFactory;
 
+    @Mock
+    private KakaoProperties kakaoProperties;
+
     private KakaoBlogSearchService kakaoBlogSearchService;
 
     @BeforeEach
     void setUp() {
-        kakaoBlogSearchService = new KakaoBlogSearchService(restTemplate, kakaoQueryParamFactory);
+        kakaoBlogSearchService = new KakaoBlogSearchService(restTemplate, kakaoQueryParamFactory,kakaoProperties);
     }
 
     @Test

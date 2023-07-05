@@ -1,13 +1,13 @@
 package lee.moonhyuk.blogsearch.search.service;
 
 import lee.moonhyuk.blogsearch.ranking.hit.Hit;
+import lee.moonhyuk.blogsearch.search.config.KakaoProperties;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchResponse;
 import lee.moonhyuk.blogsearch.search.dto.kakao.KakaoBlogSearchResponse;
 import lee.moonhyuk.blogsearch.search.service.factory.ApiQueryParamFactory;
 import lee.moonhyuk.blogsearch.util.ThreadLocalContext;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -21,16 +21,14 @@ import org.springframework.web.client.RestTemplate;
 public class KakaoBlogSearchService implements BlogSearchService {
     private final RestTemplate restTemplate;
     private final ApiQueryParamFactory kakaoQueryParamFactory;
-
-    @Value("${kakao.rest.api.key}")
-    private String kakaoRestApiKey;
+    private final KakaoProperties kakaoProperties;
 
     @Override
     @Hit
     public BlogSearchResponse search(BlogSearchRequest request) {
         ThreadLocalContext.threadLocal.set(request.getQuery());
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Authorization", "KakaoAK " + kakaoRestApiKey);
+        headers.add("Authorization", "KakaoAK " + kakaoProperties.getApiKey());
         HttpEntity<String> requestEntity = new HttpEntity<>(headers);
         KakaoBlogSearchResponse body = restTemplate.exchange(
                         kakaoQueryParamFactory.getApiUrlWithQueryParam(request),

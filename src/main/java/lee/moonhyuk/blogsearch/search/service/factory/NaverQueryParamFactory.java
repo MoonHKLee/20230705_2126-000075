@@ -1,17 +1,17 @@
 package lee.moonhyuk.blogsearch.search.service.factory;
 
+import lee.moonhyuk.blogsearch.search.config.NaverProperties;
 import lee.moonhyuk.blogsearch.search.dto.BlogSearchRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class NaverQueryParamFactory implements ApiQueryParamFactory{
-
-    private static final String NAVER_API_URL = "https://openapi.naver.com/v1/search/blog.json";
-
+    private final NaverProperties naverProperties;
     @Override
     public String getApiUrlWithQueryParam(BlogSearchRequest request) {
-
-        return NAVER_API_URL
+        return naverProperties.getApiUrl()
                 + "?query=" + request.getQuery()
                 + "&display=" + request.getSize()
                 + "&start=" + request.getPage()
