@@ -14,16 +14,14 @@ class BlogControllerTest extends ControllerTest {
     void 블로그_검색_기본() throws Exception {
         블로그_검색("hello")
                 .andExpect(status().isOk())
-                .andDo(print())
-                .andReturn();
+                .andDo(print());
     }
 
     @Test
     void 블로그_검색_페이지() throws Exception {
         블로그_검색("hello", 2, 10, Sort.ACCURACY)
                 .andExpect(status().isOk())
-                .andDo(print())
-                .andReturn();
+                .andDo(print());
     }
 
     @Test
@@ -31,16 +29,14 @@ class BlogControllerTest extends ControllerTest {
         블로그_검색("hello", 1, 5, Sort.ACCURACY)
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.size").value(5))
-                .andDo(print())
-                .andReturn();
+                .andDo(print());
     }
 
     @Test
     void 블로그_검색_최신순() throws Exception {
         블로그_검색("hello", 1, 10, Sort.RECENCY)
                 .andExpect(status().isOk())
-                .andDo(print())
-                .andReturn();
+                .andDo(print());
     }
 
     @Test

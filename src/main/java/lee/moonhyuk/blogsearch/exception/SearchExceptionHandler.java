@@ -22,4 +22,10 @@ public class SearchExceptionHandler {
         return ResponseEntity.badRequest()
                 .body(new ErrorResponse(Objects.requireNonNull(ex.getMessage())));
     }
+
+    @ExceptionHandler(ServiceListEndException.class)
+    public ResponseEntity<ErrorResponse> serviceListEndException(ServiceListEndException ex) {
+        return ResponseEntity.internalServerError()
+                .body(new ErrorResponse(Objects.requireNonNull(ex.getMessage())));
+    }
 }

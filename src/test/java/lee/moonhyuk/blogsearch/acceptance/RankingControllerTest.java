@@ -28,8 +28,7 @@ public class RankingControllerTest extends ControllerTest {
                 .andExpect(jsonPath("$.ranking[2].hit").value(6))
                 .andExpect(jsonPath("$.ranking[3].keyword").value("java"))
                 .andExpect(jsonPath("$.ranking[3].hit").value(5))
-                .andDo(print())
-                .andReturn();
+                .andDo(print());
     }
 
     private void 블로그_검색_반복(String query, int count) throws Exception {
